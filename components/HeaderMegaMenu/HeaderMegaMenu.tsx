@@ -21,6 +21,7 @@ import {
   Avatar,
 } from '@mantine/core';
 
+import Link from 'next/link';
 import Image from 'next/image';
 
 import { MantineLogo } from '@mantine/ds';
@@ -172,9 +173,9 @@ export function HeaderMegaMenu() {
             <Title order={4}>Akrem.me</Title>
           </Group>
           <Group sx={{ height: '100%' }} spacing={0} className={classes.hiddenMobile}>
-            <a href="#" className={classes.link}>
+            <Link href="/" className={classes.link}>
               Home
-            </a>
+            </Link>
             <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
                 <a href="#" className={classes.link}>
@@ -220,9 +221,9 @@ export function HeaderMegaMenu() {
                 </div>
               </HoverCard.Dropdown>
             </HoverCard>
-            <a href="#" className={classes.link}>
+            <Link href="/projects" className={classes.link}>
               Learn
-            </a>
+            </Link>
             <a href="#" className={classes.link}>
               Academy
             </a>
