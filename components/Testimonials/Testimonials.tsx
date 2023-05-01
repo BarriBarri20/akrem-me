@@ -1,5 +1,5 @@
 // Testimonials
-import { createStyles, SegmentedControl, rem, Container } from '@mantine/core';
+import { createStyles, SegmentedControl, rem, Container, Card, Space } from '@mantine/core';
 import { SetStateAction, useState } from 'react';
 import { PersonTestimonial } from '../PersonTestimonial/PersonTestimonial';
 
@@ -38,19 +38,33 @@ export function Testimonials() {
     setSelectedItem(item);
   };
 
+  const renderCard = () => {
+    if (selectedItem !== 'All') {
+      return (
+        
+          <PersonTestimonial technology={selectedItem}></PersonTestimonial>
+       
+      );
+    }
+    return null;
+  };
+
   return (
     <>
-    <Container maw={400} h={100} mx="auto">
-      <SegmentedControl
-        radius="xl"
-        size="md"
-        data={['All', 'AI/ML', 'C++', 'Rust', 'TypeScript']}
-        classNames={classes}
-        value={selectedItem}
-        onChange={handleSelectedItemChange}
-      />
-      <PersonTestimonial />
+      <Container maw={400} h={100} mx="auto">
+        <SegmentedControl
+          radius="xl"
+          size="md"
+          data={['All', 'AI/ML', 'C++', 'Rust', 'TypeScript']}
+          classNames={classes}
+          value={selectedItem}
+          onChange={handleSelectedItemChange}
+        />
+              <Space pb={10} />
+
+      {renderCard()}
       </Container>
+      
     </>
   );
 }
